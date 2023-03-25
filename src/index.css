@@ -1,13 +1,68 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Space+Grotesk:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --repeat: 8;
+    --max-cards: 2;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#chargrid {
+    display: grid;
+    grid-template-columns: repeat(min(var(--repeat), var(--max-cards)), 1fr);
+    grid-gap: 1rem;
+    margin: 1rem;
+}
+
+@media screen and (min-width: 360px) {
+   :root {
+        --max-cards: 3;
+   }
+}
+@media screen and (min-width: 480px) {
+   :root {
+        --max-cards: 4;
+   }
+}
+@media screen and (min-width: 600px) {
+   :root {
+        --max-cards: 5;
+   }
+}
+
+@media screen and (min-width: 720px) {
+    :root {
+        --max-cards: 6;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    :root {
+        --max-cards: 8;
+    }
+}
+
+@media screen and (min-width: 1840px) {
+    :root {
+        --repeat: 12;
+        --max-cards: 12;
+    }
+}
+
+.animate-up {
+    animation: animate-up forwards 750ms ease-out;
+}
+
+@keyframes animate-up {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
 }
