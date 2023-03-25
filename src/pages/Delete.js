@@ -55,13 +55,13 @@ function Delete() {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen relative p-8 pb-20 font-poppins'>
+    <div className='flex flex-col items-center justify-center min-h-screen relative p-8 py-20 pb-24 font-poppins'>
     <button title='Go Back' onClick={() => navigate(-1)} className='fixed top-0 left-0 m-4 md:m-8 rounded-full shadow-md md:outline outline-1 p-2 z-10 bg-white transition-all'><IoMdArrowBack/></button>
-    <div className='fixed bottom-0 left-0 p-4 flex flex-col md:flex-row gap-4 md:gap-8 border-t bg-white w-full justify-center items-center z-10'>
+    <div className='fixed bottom-0 left-0 p-4 flex flex-col md:flex-row gap-2 md:gap-8 border-t bg-white w-full justify-center items-center z-10'>
       <p className='animate-up'>Current: {string}</p>
       {copied ? <span className='animate-up'>Text Copied!</span> :  <span className='animate-up'>New: {charList.join("")} <button onClick={copyToClipboard}><BiCopy/></button></span>}
     </div>
-    <h1 className='md:text-3xl font-bold mb-8 text-center'>{success ? "Success" : "Let's Remove Duplicate Characters"}</h1>
+    <h1 className='text-2xl md:text-3xl font-bold mb-8 text-center'>{success ? "Success" : "Let's Remove Duplicate Characters"}</h1>
     <div id='chargrid' className='items-center justify-center'>
       {charList.map((char, index) => <DeleteCard key={index} id={index} value={char}/>)}
     </div>
